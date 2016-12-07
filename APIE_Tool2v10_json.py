@@ -2811,14 +2811,14 @@ def add_component(s, side, section, location, plug_value):
                     PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(x_coord, plug_value) + '_' + \
                                       side[0]
                 if ligval_ammount == 1:
-                    LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0]
+                    LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0]
                     if len(LING_VAL.name) > 24:
                         LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0]
                 elif ligval_ammount == 2:
-                    LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '1'
+                    LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '1'
                     if len(LING_VAL.name) > 24:
                         LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '1'
-                    LING_VAL2.name = 'OB_BIN_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '2'
+                    LING_VAL2.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '2'
                     if len(LING_VAL2.name) > 24:
                         LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(x_coord, plug_value) + '_' + side[0] + '2'
 
@@ -2870,7 +2870,7 @@ def add_component(s, side, section, location, plug_value):
                 PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                   side[0]
-                LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(
+                LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                 side[0]
                 NewComponent.Move.Apply(Rotate5)
@@ -2923,7 +2923,7 @@ def add_component(s, side, section, location, plug_value):
                 PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                   side[0]
-                LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(
+                LING_VAL.name = 'OB_LIGVAL_STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                 side[0]
                 NewComponent.Move.Apply(Rotate185)
