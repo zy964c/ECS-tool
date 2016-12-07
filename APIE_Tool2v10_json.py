@@ -683,7 +683,7 @@ def instantiate_omf_irm_and_carm(product_in_work, name):
         side_id = 'L'
     else:
         side_id = 'R'
-    id = 'ECS_OMF_UPR-AIR_INSTL_STA' + start_sta + '-' + finish_sta + '_' + side_id
+    id = 'ECS_OMF_STA' + start_sta + '-' + finish_sta + '_' + side_id
     product_forpaste = products1.AddNewComponent("Product", pn)
     product_forpaste.name = id
     order_of_new_product = dash_number - 995 + constSize
@@ -771,7 +771,7 @@ def instantiate_omf_nonconstant_irm_and_carm(product_in_work_nonconstant, name):
         side_id = 'L'
     else:
         side_id = 'R'
-    id = 'ECS_OMF_UPR-AIR_INSTL_STA' + start_sta + '-' + finish_sta + '_' + side_id
+    id = 'ECS_OMF_STA' + start_sta + '-' + finish_sta + '_' + side_id
     product_forpaste = products1.AddNewComponent("Product", pn)
     product_forpaste.name = id
     order_of_new_product = dash_number - 995 + constSize
@@ -887,7 +887,7 @@ def instantiate_omf_nonconstant_section47_irm_and_carm(product_in_work_nonconsta
         side_id = 'L'
     else:
         side_id = 'R'
-    id = 'ECS_OMF_UPR-AIR_INSTL_STA' + start_sta + '-' + str(finish_sta) + '_' + side_id
+    id = 'ECS_OMF_STA' + start_sta + '-' + str(finish_sta) + '_' + side_id
     product_forpaste = products1.AddNewComponent("Product", pn)
     product_forpaste.name = id
     order_of_new_product = dash_number - 995 + constSize
@@ -2805,7 +2805,7 @@ def add_component(s, side, section, location, plug_value):
                                                                                               plug_value) + '_' + side[0]
                         Lower_Downer1.name = dow_type + '_STA' + sta_value(x_coord, plug_value) + '_' + side[0]
 
-                PlenumAssy.name = str(number) + nozzl_type + 'NOZASSY_' + 'STA' + sta_value(x_coord, plug_value) + '_' + \
+                PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(x_coord, plug_value) + '_' + \
                                   side[0]
                 if len(PlenumAssy.name) > 24:
                     PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(x_coord, plug_value) + '_' + \
@@ -2867,7 +2867,7 @@ def add_component(s, side, section, location, plug_value):
                         (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                          side[0]
 
-                PlenumAssy.name = str(number) + nozzl_type + 'NOZASSY_' + 'STA' + sta_value(
+                PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                   side[0]
                 LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(
@@ -2920,7 +2920,7 @@ def add_component(s, side, section, location, plug_value):
                         (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                          side[0]
 
-                PlenumAssy.name = str(number) + nozzl_type + 'NOZASSY_' + 'STA' + sta_value(
+                PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_41 + x_coord_nonconstant - inch_to_mm(int(number))), plug_value) + '_' + \
                                   side[0]
                 LING_VAL.name = 'OB_BIN_LIGVAL_STA' + sta_value(
@@ -2968,7 +2968,7 @@ def add_component(s, side, section, location, plug_value):
                     Lower_Downer1.name = dow_type + '_STA' + sta_value((fake_coord_nonconstant_47 + x_coord_nonconstant),
                                                                        plug_value) + '_' + side[0]
 
-                PlenumAssy.name = str(number) + nozzl_type + 'NOZASSY_' + 'STA' + sta_value(
+                PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_47 + x_coord_nonconstant), plug_value) + '_' + side[0]
                 Felt.name = 'UPR_FELT_' + str(number) + 'IN_STA' + sta_value(
                     (fake_coord_nonconstant_47 + x_coord_nonconstant), plug_value) + '_' + side[0]
@@ -3016,7 +3016,7 @@ def add_component(s, side, section, location, plug_value):
                     Lower_Downer1.name = dow_type + '_STA' + sta_value((fake_coord_nonconstant_47 + x_coord_nonconstant),
                                                                        plug_value) + '_' + side[0]
 
-                PlenumAssy.name = str(number) + nozzl_type + 'NOZASSY_' + 'STA' + sta_value(
+                PlenumAssy.name = str(number) + nozzl_type + 'ASSY_' + 'STA' + sta_value(
                     (fake_coord_nonconstant_47 + x_coord_nonconstant), plug_value) + '_' + side[0]
                 Felt.name = 'UPR_FELT_' + str(number) + 'IN_STA' + sta_value(
                     (fake_coord_nonconstant_47 + x_coord_nonconstant), plug_value) + '_' + side[0]

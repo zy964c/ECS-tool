@@ -778,7 +778,7 @@ class CarmUpperBin(CarmOmf):
         Prod = self.productDocument1.Product
         collection = Prod.Products
         to_p = collection.Item(self.order_of_new_product)
-        instance_id_IRM = 'ECS_UPR-AIR-DIST_INSTL_STA' + start_sta + '-' + finish_sta + '_' + side[0]
+        instance_id_IRM = 'ECS_UPR_STA' + start_sta + '-' + finish_sta + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
@@ -1817,7 +1817,7 @@ class CarmLowerBin(CarmUpperBin):
         to_p = collection.Item(self.order_of_new_product)
         # Product2Products = Product2.Products
         # product_forpaste = Product2Products.Item(3)
-        instance_id_IRM = 'ECS_LWR-AIR-DIST_INSTL_STA' + start_sta + '-' + finish_sta + '_' + side[0]
+        instance_id_IRM = 'ECS_LWR_STA' + start_sta + '-' + finish_sta + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
@@ -2355,7 +2355,7 @@ class CarmOmfNonConstant(CarmUpperBin):
         #Product2 = to_p.ReferenceProduct
         #Product2Products = Product2.Products
         #product_forpaste = Product2Products.Item(3)
-        instance_id_IRM = 'ECS_UPR-AIR-DIST_INSTL_STA' + start_sta + '-0' + str(finish_sta) + '_' + side[0]
+        instance_id_IRM = 'ECS_UPR_STA' + start_sta + '-0' + str(finish_sta) + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
@@ -2502,7 +2502,7 @@ class CarmLowerBinNonConstant(CarmLowerBin):
         collection = Prod.Products
         to_p = collection.Item(self.order_of_new_product)
         #Product2 = to_p.ReferenceProduct
-        instance_id_IRM = 'ECS_LWR-AIR-DIST_INSTL_STA' + start_sta + '-0' + str(finish_sta) + '_' + side[0]
+        instance_id_IRM = 'ECS_LWR_STA' + start_sta + '-0' + str(finish_sta) + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
@@ -2823,7 +2823,7 @@ class CarmUpperBinNonConstantSection47(CarmUpperBin):
 #        Product2 = to_p.ReferenceProduct
         #Product2Products = Product2.Products
         #product_forpaste = Product2Products.Item(3)
-        instance_id_IRM = 'ECS_UPR-AIR-DIST_INSTL_STA' + start_sta + '-' + str(finish_sta) + '_' + side[0]
+        instance_id_IRM = 'ECS_UPR_STA' + start_sta + '-' + str(finish_sta) + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
@@ -2865,7 +2865,7 @@ class CarmLowerBinNonConstantSection47(CarmLowerBin):
 #        Product2 = to_p.ReferenceProduct
         #Product2Products = Product2.Products
         #product_forpaste = Product2Products.Item(3)
-        instance_id_IRM = 'ECS_LWR-AIR-DIST_INSTL_STA' + start_sta + '-' + str(finish_sta) + '_' + side[0]
+        instance_id_IRM = 'ECS_LWR_STA' + start_sta + '-' + str(finish_sta) + '_' + side[0]
         to_p.Name = instance_id_IRM
         print to_p.Name
 
