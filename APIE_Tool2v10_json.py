@@ -255,7 +255,7 @@ class TkFileDialogExample(Tkinter.Frame):
 
         end = time.time()
         print end - start
-        tkMessageBox.showinfo(title="APIE tool", message="Done")
+        tkMessageBox.showinfo(title="APIE tool", message="Done. Run add_pn_to_inst_id_ecs.py after applying P/N to IRMs")
         root.withdraw()
         root.destroy()
 
