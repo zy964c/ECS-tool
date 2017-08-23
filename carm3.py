@@ -656,7 +656,7 @@ class CarmOmf(object):
             upper_plenum_spud_fasteners_up_direction = [0, 0.735605, 0.677411]
 
         view_origins = [all_annotations_origin, engineering_definition_release_origin, reference_geometry_origin, upper_plenum_fasteners_origin, upper_plenum_spud_fasteners_origin]
-        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'Upper Plenum Fasteners', 'Upper Plenum Spud Fasteners']
+        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'JD01 Upper Plenum Fasteners', 'JD02 Upper Plenum Spud Fasteners']
         sight_directions = [all_annotations_sight_direction, engineering_definition_sight_direction, reference_geometry_sight_direction, upper_plenum_fasteners_sight_direction, upper_plenum_spud_fasteners_sight_direction]
         up_directions = [all_annotations_up_direction, engineering_definition_up_direction, reference_geometry_up_direction, upper_plenum_fasteners_up_direction, upper_plenum_spud_fasteners_up_direction]
         dict_cameras = dict(zip(viewpoints, view_origins))
@@ -1023,7 +1023,7 @@ class CarmUpperBin(CarmOmf):
             upper_plenum_spud_fasteners_up_direction = [0, 0.735605, 0.677411]
 
         view_origins = [all_annotations_origin, engineering_definition_release_origin, reference_geometry_origin, upper_plenum_fasteners_origin, upper_plenum_spud_fasteners_origin]
-        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'Upper Plenum Fasteners', 'Upper Plenum Spud Fasteners']
+        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'JD01 Upper Plenum Fasteners', 'JD02 Upper Plenum Spud Fasteners']
         sight_directions = [all_annotations_sight_direction, engineering_definition_sight_direction, reference_geometry_sight_direction, upper_plenum_fasteners_sight_direction, upper_plenum_spud_fasteners_sight_direction]
         up_directions = [all_annotations_up_direction, engineering_definition_up_direction, reference_geometry_up_direction, upper_plenum_fasteners_up_direction, upper_plenum_spud_fasteners_up_direction]
         dict_cameras = dict(zip(viewpoints, view_origins))
@@ -1436,7 +1436,7 @@ class CarmUpperBinNonConstant(CarmOmf):
             upper_plenum_spud_fasteners_up_direction = [-0.064112, 0.732806, 0.677411]
 
         view_origins = [all_annotations_origin, engineering_definition_release_origin, reference_geometry_origin, upper_plenum_fasteners_origin, upper_plenum_spud_fasteners_origin]
-        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'Upper Plenum Fasteners', 'Upper Plenum Spud Fasteners']
+        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'JD01 Upper Plenum Fasteners', 'JD02 Upper Plenum Spud Fasteners']
         sight_directions = [all_annotations_sight_direction, engineering_definition_sight_direction, reference_geometry_sight_direction, upper_plenum_fasteners_sight_direction, upper_plenum_spud_fasteners_sight_direction]
         up_directions = [all_annotations_up_direction, engineering_definition_up_direction, reference_geometry_up_direction, upper_plenum_fasteners_up_direction, upper_plenum_spud_fasteners_up_direction]
         dict_cameras = dict(zip(viewpoints, view_origins))
@@ -1841,6 +1841,10 @@ class CarmLowerBin(CarmUpperBin):
             selection2.Add(part2)
             selection2.PasteSpecial('CATPrtResultWithOutLink')
             part2.Update()
+            if fastener == "156'-'00066'.'1":
+                selection2.visProperties.SetRealColor(255, 128, 0, 0)
+            elif fastener == 'BACS38K2':
+                selection2.visProperties.SetRealColor(255, 0, 255, 0)
 
     def add_ref_annotation(self, sta_value_pairs, size, side, capture_number):
 
@@ -2408,7 +2412,7 @@ class CarmOmfNonConstant(CarmUpperBin):
             upper_plenum_spud_fasteners_up_direction = [-0.064112, 0.732806, 0.677411]
 
         view_origins = [all_annotations_origin, engineering_definition_release_origin, reference_geometry_origin, upper_plenum_fasteners_origin, upper_plenum_spud_fasteners_origin]
-        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'Upper Plenum Fasteners', 'Upper Plenum Spud Fasteners']
+        viewpoints = ['All Annotations', 'Engineering Definition Release', 'Reference Geometry', 'JD01 Upper Plenum Fasteners', 'JD02 Upper Plenum Spud Fasteners']
         sight_directions = [all_annotations_sight_direction, engineering_definition_sight_direction, reference_geometry_sight_direction, upper_plenum_fasteners_sight_direction, upper_plenum_spud_fasteners_sight_direction]
         up_directions = [all_annotations_up_direction, engineering_definition_up_direction, reference_geometry_up_direction, upper_plenum_fasteners_up_direction, upper_plenum_spud_fasteners_up_direction]
         dict_cameras = dict(zip(viewpoints, view_origins))

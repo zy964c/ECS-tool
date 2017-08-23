@@ -215,7 +215,7 @@ class TkFileDialogExample(Tkinter.Frame):
             add_component(s6, 'RH', 'nonconstant', 'tail', plug)
 
         global constSize
-        sizes = ['18', '24', '30', '36', '42', '48', '54', '60', '72']
+        sizes = ['12', '18', '24', '30', '36', '42', '48', '54', '60', '72']
         constant_lenght = []
         constant_items = [s3, s4]
         for item in constant_items:
@@ -842,6 +842,11 @@ def instantiate_omf_nonconstant_irm_and_carm(product_in_work_nonconstant, name):
         #carm_instance.hide_unhide_captures('unhide', 1)
         carm_instance.activate_top_prod()
 
+def add_zero(j):
+    
+    if j < 1000:
+        return '0'+str(j)
+    return str(j)
 
 def if_stable():
 
@@ -853,12 +858,15 @@ def if_stable():
     if make_carms_UI:
         if plug == 240:
             stable_zone = []
-            upper_bound = int(inch_to_mm(1))
-            for i in range(upper_bound):
+            upper_bound = int(inch_to_mm(3100))
+            lower_bound = int(inch_to_mm(3000))
+            for i in range(lower_bound, upper_bound):
                 stable_zone.append(sta_value(i, plug))
             #stable_zone = ['345', '0465', '0513', '0897', '0945', '0993', '1041', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
             #stable_zone = ['0465', '0513', '0561', '0609', '0609+48', '0609+90', '0693', '0699', '0723', '0759', '0801', '0849', '1089', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
             #stable_zone = ['0897', '0945', '0993', '1041', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
+            #stable_zone += ['0465', '0513', '1293', '1365']
+            print stable_zone
             sta = sta_values_fake[order_of_templete_product - 4]
             if sta in stable_zone:
                 return True
@@ -1289,7 +1297,8 @@ def instantiate_carm_lwr(product_inwork, name, product_forpaste_upr, state, firs
                     print 'done setting parameters middle'
             carm_instance.copy_jd4_bacs12fa3k3_and_paste_2(size)
             carm_instance.copy_ref_surface_and_paste(size)
-            carm_instance.copy_bodies_and_paste('156')
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'1")
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'2")
             carm_instance.copy_bodies_and_paste('BACS12FA3K3.')
             if size != '24':
                 # if size != '24' and size != '36':
@@ -1390,7 +1399,8 @@ def instantiate_carm_lwr_nonc(product_inwork_nonc, name, product_forpaste_upr, s
                     carm_instance.set_parameters(sta_value_pairs, size)
             carm_instance.copy_jd4_bacs12fa3k3_and_paste_2(size)
             carm_instance.copy_ref_surface_and_paste(size)
-            carm_instance.copy_bodies_and_paste('156')
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'1")
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'2")
             carm_instance.copy_bodies_and_paste('BACS12FA3K3.')
             if size != '24':
                 # if size != '24' and size != '36':
@@ -1487,7 +1497,8 @@ def instantiate_carm_lwr_nonc_s47(product_inwork_nonc, name, product_forpaste_up
                 carm_instance.copy_jd3_BACS12FA3K12_and_paste(size)
             carm_instance.copy_jd4_bacs12fa3k3_and_paste_2(size)
             carm_instance.copy_ref_surface_and_paste(size)
-            carm_instance.copy_bodies_and_paste('156')
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'1")
+            carm_instance.copy_bodies_and_paste("156'-'00066'.'1")
             carm_instance.copy_bodies_and_paste('BACS12FA3K3.')
             if size != '24':
                 # if size != '24' and size != '36':
@@ -1738,6 +1749,7 @@ def add_component(s, side, section, location, plug_value):
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
 
                     elif int(number) == 36:
+                        number = '36'
                         dow_type = 'DWNR_JOG-STRT'
                         iteration += 1
                         index += 1
@@ -1871,10 +1883,11 @@ def add_component(s, side, section, location, plug_value):
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
 
                     elif int(number) == 362:
+                        number = '36'
                         dow_type = 'DWNR_JOG-STRT'
                         iteration += 1
                         index += 1
-                        PartDocPath = path + '\Thirty_six_arch_RH_solids'
+                        PartDocPath = path + '\Thirty_six_arch_RH_solids_2_pr'
                         PartDocPath1 = PartDocPath + str(iteration) + extention
                         oFileSys.CopyFile(PartDocPath + extention, PartDocPath1, False)
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
@@ -1970,6 +1983,7 @@ def add_component(s, side, section, location, plug_value):
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
 
                     elif int(number) == 36:
+                        number = '36'
                         dow_type = 'DWNR_JOG-STRT'
                         iteration += 1
                         index += 1
@@ -2103,10 +2117,11 @@ def add_component(s, side, section, location, plug_value):
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
 
                     elif int(number) == 362:
+                        number = '36'
                         dow_type = 'DWNR_JOG-STRT'
                         iteration += 1
                         index += 1
-                        PartDocPath = path + '\Thirty_six_arch_LH_solids'
+                        PartDocPath = path + '\Thirty_six_arch_LH_solids_2_pr'
                         PartDocPath1 = PartDocPath + str(iteration) + extention
                         oFileSys.CopyFile(PartDocPath + extention, PartDocPath1, False)
                         PartDoc = CATIA.Documents.Open(PartDocPath1)
