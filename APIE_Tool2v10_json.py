@@ -66,6 +66,9 @@ parameters_set = False
 global path
 path = ''
 
+global sta_to_exclude
+sta_to_exclude = []
+
 
 class TkFileDialogExample(Tkinter.Frame):
 
@@ -198,6 +201,20 @@ class TkFileDialogExample(Tkinter.Frame):
         global SOW
         SOW = str(self.sp.get())
         print SOW
+
+        #Define stable STA here:
+        
+        global sta_to_exclude
+        stable_zone = [[465, 656], [1137, 1328], [1293, 2200]]
+        
+        print 'Working on creating stable STA list...'
+        
+        l = [list ((xrange(x[0], x[1]))) for x in stable_zone]
+        flat_list = [item for sublist in l for item in sublist]
+        mm_sta = map(lambda x: inch_to_mm(x), flat_list)
+        sta_to_exclude = map(lambda x: sta_value(x, plug), mm_sta)
+            
+        print 'Done!'
 
         instantiate_nonconstant_components()
 
@@ -842,36 +859,25 @@ def instantiate_omf_nonconstant_irm_and_carm(product_in_work_nonconstant, name):
         #carm_instance.hide_unhide_captures('unhide', 1)
         carm_instance.activate_top_prod()
 
+
 def add_zero(j):
     
     if j < 1000:
         return '0'+str(j)
     return str(j)
 
+
 def if_stable():
 
     """
-    Checks if an IRM is in stable zone, if yes - CARM won't be populated. Currently works only for the 787-9
+    Checks if an IRM is in stable zone, if yes - CARM won't be populated.
     :return: True if IRM is in stable zone, False if not
     """
 
     if make_carms_UI:
-        if plug == 240:
-            stable_zone = []
-            upper_bound = int(inch_to_mm(3100))
-            lower_bound = int(inch_to_mm(3000))
-            for i in range(lower_bound, upper_bound):
-                stable_zone.append(sta_value(i, plug))
-            #stable_zone = ['345', '0465', '0513', '0897', '0945', '0993', '1041', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
-            #stable_zone = ['0465', '0513', '0561', '0609', '0609+48', '0609+90', '0693', '0699', '0723', '0759', '0801', '0849', '1089', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
-            #stable_zone = ['0897', '0945', '0993', '1041', '1365', '1401', '1401+0', '1401+48', '1401+96', '1425', '1473', '1521', '1569']
-            #stable_zone += ['0465', '0513', '1293', '1365']
-            print stable_zone
-            sta = sta_values_fake[order_of_templete_product - 4]
-            if sta in stable_zone:
-                return True
-            else:
-                return False
+        sta = sta_values_fake[order_of_templete_product - 4]
+        if sta in sta_to_exclude:
+            return True
         else:
             return False
     else:
